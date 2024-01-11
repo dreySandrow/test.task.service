@@ -1,3 +1,7 @@
+
+
+using System.Reflection;
+using Test.Task.Service.Application;
 using Test.Task.Service.Persistence.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +13,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication();
+//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.AddScoped(typeof(CancellationToken), serviceProvider =>
+{
+    IHttpContextAccessor httpContext = serviceProvider.GetRequiredService<IHttpContextAccessor>();
+    return httpContext.HttpContext?.RequestAborted ?? CancellationToken.None;
+});
 
 var app = builder.Build();
 

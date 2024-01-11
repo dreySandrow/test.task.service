@@ -9,4 +9,19 @@ public class Task
     public DateTime UpdatedAt { get; set; }
     
     public TaskStatusEnum Status { get; set; }
+    
+    private Task()
+    {
+        
+    }
+
+    public static Task Create()
+    {
+        var task = new Task();
+        task.Id = Guid.NewGuid();
+        task.UpdatedAt = DateTime.UtcNow;
+        task.Status = TaskStatusEnum.Created;
+        
+        return task;
+    }
 }

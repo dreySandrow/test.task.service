@@ -9,6 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+        <PackageReference Include="MediatR" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
@@ -25,7 +27,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Test.Task.Service.Application\Test.Task.Service.Application.csproj" />
       <ProjectReference Include="..\Test.Task.Service.Persistence\Test.Task.Service.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageVersion Update="MediatR" Version="12.2.0" />
     </ItemGroup>
 
 </Project>

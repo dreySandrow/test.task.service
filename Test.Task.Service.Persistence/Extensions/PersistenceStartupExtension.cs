@@ -14,9 +14,7 @@ public static class PersistenceStartupExtension
             options.UseNpgsql(configuration["ConnectionStrings:PostgresConnection:connectionString"] +
                               $"Database={configuration["ConnectionStrings:PostgresConnection:Database"]};");
         });
-
-        services.AddScoped<ApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-
+        
         return services;
     }
 }
