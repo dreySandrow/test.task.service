@@ -6,7 +6,7 @@ using Test.Task.Service.Persistence;
 
 namespace Test.Task.Service.Application.Tasks.Queries;
 
-public class GetTaskByIdQueryHandler
+public sealed class GetTaskByIdQueryHandler
     (ApplicationDbContext applicationDbContext, IMapper mapper) : HandlerBase<GetTaskByIdQuery, TaskDto>(
         applicationDbContext, mapper)
 {

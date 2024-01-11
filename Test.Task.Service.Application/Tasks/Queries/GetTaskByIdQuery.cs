@@ -3,7 +3,7 @@ using Test.Task.Service.Application.Models;
 
 namespace Test.Task.Service.Application.Tasks.Queries;
 
-public class GetTaskByIdQuery : IRequest<TaskDto>
+public sealed class GetTaskByIdQuery : IRequest<TaskDto>
 {
     public Guid Id { get; set; }
 }

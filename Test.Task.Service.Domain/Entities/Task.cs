@@ -2,13 +2,13 @@ using Test.Task.Service.Domain.Enums;
 
 namespace Test.Task.Service.Domain.Entities;
 
-public class Task
+public sealed class Task
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; private set; }
     
-    public DateTime UpdatedAt { get; set; }
+    public DateTime UpdatedAt { get; private set; }
     
-    public TaskStatusEnum Status { get; set; }
+    public TaskStatusEnum Status { get; private set; }
     
     private Task()
     {

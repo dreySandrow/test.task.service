@@ -5,7 +5,7 @@ using Threading = System.Threading.Tasks;
 
 namespace Test.Task.Service.Application.Tasks.Commands.Create;
 
-public class CreateTaskCommandHandler(ApplicationDbContext applicationDbContext, IMapper mapper) : HandlerBase<CreateTaskCommand, Guid>(
+public sealed class CreateTaskCommandHandler(ApplicationDbContext applicationDbContext, IMapper mapper) : HandlerBase<CreateTaskCommand, Guid>(
     applicationDbContext, mapper)
 {
     public override async Task<Guid> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
