@@ -24,4 +24,13 @@ public sealed class Task
         
         return task;
     }
+
+    public void SetStatus(TaskStatusEnum status)
+    {
+        if (Status != status)
+        {
+            Status = status;
+            UpdatedAt = DateTime.UtcNow;
+        }
+    }
 }

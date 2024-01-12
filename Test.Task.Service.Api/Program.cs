@@ -14,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddLogging();
 //builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped(typeof(CancellationToken), serviceProvider =>
 {

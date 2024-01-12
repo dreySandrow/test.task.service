@@ -13,7 +13,7 @@ public static class PersistenceStartupExtension
         {
             options.UseNpgsql(configuration["ConnectionStrings:PostgresConnection:connectionString"] +
                               $"Database={configuration["ConnectionStrings:PostgresConnection:Database"]};");
-        });
+        }, ServiceLifetime.Transient);
         
         return services;
     }
