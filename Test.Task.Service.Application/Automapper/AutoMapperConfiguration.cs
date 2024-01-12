@@ -8,5 +8,6 @@ public class AutoMapperConfiguration : Profile
     public AutoMapperConfiguration()
     {
         CreateMap<Domain.Entities.Task, TaskDto>();
+        CreateMap<Domain.Entities.Task, CreateTaskRequest>();
     }   
 }
