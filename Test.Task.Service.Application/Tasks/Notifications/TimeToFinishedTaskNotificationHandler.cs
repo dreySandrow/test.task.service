@@ -21,7 +21,7 @@ public class TimeToFinishedTaskNotificationHandler
             Logger.LogInformation($"Try to finished Task (id = {notification.Id}) status...");
             var task = await ContextDb.Tasks.FirstOrDefaultAsync(e => e.Id.Equals(notification.Id));
             task.SetStatus(TaskStatusEnum.Finished);
-            ContextDb.SaveChangesAsync(cancellationToken);
+            await ContextDb.SaveChangesAsync(cancellationToken);
             Logger.LogInformation($"Task (id = {notification.Id}) finished!.");
         }
         catch (Exception ex)

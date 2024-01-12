@@ -22,7 +22,7 @@ public class TaskCreatedNotificationHandler
             Logger.LogInformation($"Try to change Task (id = {notification.Id}) status...");
             var task = await ContextDb.Tasks.FirstOrDefaultAsync(e => e.Id.Equals(notification.Id));
             task.SetStatus(TaskStatusEnum.Running);
-            ContextDb.SaveChangesAsync(cancellationToken);
+            await ContextDb.SaveChangesAsync(cancellationToken);
             Logger.LogInformation($"Status has been changed for Task (id = {notification.Id}).");
         }
         catch (Exception ex)
