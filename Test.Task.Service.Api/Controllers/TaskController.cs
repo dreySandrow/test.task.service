@@ -11,7 +11,7 @@ public class TaskController(IMediator mediator) : ControllerBase
 {
     private IMediator Mediator { get; } = mediator;
 
-    [HttpGet]
+    [HttpPost]
     public async Task<IActionResult> CreateTask(CancellationToken cancellationToken)
     {
         var result = await Mediator.Send(new CreateTaskCommand(), cancellationToken);
